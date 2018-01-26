@@ -4,15 +4,26 @@ import '../style/app.css';
 
 let app = () => {
   return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
+    template: require('../views/app.html'),
+    controller: 'CardsController',
     controllerAs: 'app'
   }
 };
 
-class AppCtrl {
-  constructor() {
-    this.url = 'https://github.com/preboot/angular-webpack';
+class CardsController {
+  constructor($scope) {
+      $scope.phones = [
+          {
+              name: 'Nexus S',
+              snippet: 'Fast just got faster with Nexus S.'
+          }, {
+              name: 'Motorola XOOM™ with Wi-Fi',
+              snippet: 'The Next, Next Generation tablet.'
+          }, {
+              name: 'MOTOROLA XOOM™',
+              snippet: 'The Next, Next Generation tablet.'
+          }
+      ];
   }
 }
 
@@ -20,6 +31,6 @@ const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, [])
   .directive('app', app)
-  .controller('AppCtrl', AppCtrl);
+  .controller('CardsController', CardsController);
 
 export default MODULE_NAME;

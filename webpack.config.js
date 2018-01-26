@@ -176,7 +176,7 @@ module.exports = function makeWebpackConfig() {
     // Render index.html
     config.plugins.push(
       new HtmlWebpackPlugin({
-        template: './src/public/index.html',
+        template: './src/index.html',
         inject: 'body'
       }),
 
@@ -205,7 +205,7 @@ module.exports = function makeWebpackConfig() {
       // Copy assets from the public folder
       // Reference: https://github.com/kevlened/copy-webpack-plugin
       new CopyWebpackPlugin([{
-        from: __dirname + '/src/public'
+        from: __dirname + '/src/views'
       }])
     )
   }
@@ -216,7 +216,7 @@ module.exports = function makeWebpackConfig() {
    * Reference: http://webpack.github.io/docs/webpack-dev-server.html
    */
   config.devServer = {
-    contentBase: './src/public',
+    contentBase: './src',
     stats: 'minimal'
   };
 
