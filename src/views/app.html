@@ -4,7 +4,7 @@
       <div class="col-3">
         <ul>
           <li ng-repeat="card in app.cards">
-            <a href='' ng-click="app.info($index)">
+            <a href='' ng-init="app.info(0)" ng-click="app.info($index)">
               <span>{{card.name}}</span>
               <p>{{card.type}}</p>
             </a>

@@ -44,7 +44,6 @@ class CardsController {
 
       self.cardNameArr.forEach(cardName => {
           $http.get('http://52.57.88.137/api/card_data/'+cardName).then(function(response) {
-          // $http.get('http://52.57.88.137/api/card_data/Infernoid%20Antra').then(function(response) {
               self.cardData = response.data;
               self.cards.push({
                   name: self.cardData.data.name,
