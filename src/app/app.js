@@ -1,6 +1,8 @@
 import angular from 'angular';
-
-import '../style/app.css';
+import $ from "jquery";
+import 'bootstrap/dist/js/bootstrap.bundle.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../style/app.scss';
 
 let app = () => {
   return {
@@ -11,19 +13,48 @@ let app = () => {
 };
 
 class CardsController {
-  constructor($scope) {
-      $scope.phones = [
-          {
-              name: 'Nexus S',
-              snippet: 'Fast just got faster with Nexus S.'
-          }, {
-              name: 'Motorola XOOM™ with Wi-Fi',
-              snippet: 'The Next, Next Generation tablet.'
-          }, {
-              name: 'MOTOROLA XOOM™',
-              snippet: 'The Next, Next Generation tablet.'
-          }
+  constructor($scope, $http) {
+      var self = this;
+      self.cardNameArr = [
+          'Burial from a Different Dimension',
+          'Charge of the Light Brigade',
+          'Infernoid Antra',
+          'Infernoid Attondel',
+          'Infernoid Decatron',
+          'Infernoid Devyaty',
+          'Infernoid Harmadik',
+          'Infernoid Onuncu',
+          'Infernoid Patrulea',
+          'Infernoid Pirmais',
+          'Infernoid Seitsemas',
+          'Lyla, Lightsworn Sorceress',
+          'Monster Gate',
+          'One for One',
+          'Raiden, Hand of the Lightsworn',
+          'Reasoning',
+          'Time-Space Trap Hole',
+          'Torrential Tribute',
+          'Upstart Goblin',
+          'Void Seer'
       ];
+      self.cards = [];
+      self.info = function(index){
+          self.cardInfo = self.cards[index];
+      };
+
+      self.cardNameArr.forEach(cardName => {
+          $http.get('http://52.57.88.137/api/card_data/'+cardName).then(function(response) {
+          // $http.get('http://52.57.88.137/api/card_data/Infernoid%20Antra').then(function(response) {
+              self.cardData = response.data;
+              self.cards.push({
+                  name: self.cardData.data.name,
+                  description: self.cardData.data.text,
+                  type: self.cardData.data.type,
+              })
+          });
+      });
+
+
   }
 }
 
