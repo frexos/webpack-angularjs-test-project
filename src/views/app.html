@@ -1,9 +1,9 @@
 <main ng-controller="CardsController">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-3">
-        <ul>
-          <li ng-repeat="card in app.cards">
+  <div class="container-fluid app__container">
+    <div class="row app__row">
+      <div class="col-3 js-sidebar sidebar">
+        <ul class="sidebar__list">
+          <li class="sidebar__list-item" ng-repeat="card in app.cards">
             <a href='' ng-init="app.info(0)" ng-click="app.info($index)">
               <span>{{card.name}}</span>
               <p>{{card.type}}</p>
@@ -11,9 +11,11 @@
           </li>
         </ul>
       </div>
-      <div class="col-9">
-        <img ng-src="http://52.57.88.137/api/card_image/{{app.cardInfo.name}}">
-        <p>{{app.cardInfo.description}}</p>
+      <div class="col-9 card">
+        <h2 class="card__title">{{app.cardInfo.name}}</h2>
+        <div class="clearfix"></div>
+        <img class="card__image" ng-src="http://52.57.88.137/api/card_image/{{app.cardInfo.name}}">
+        <p class="card__description">{{app.cardInfo.description}}</p>
       </div>
     </div>
   </div>

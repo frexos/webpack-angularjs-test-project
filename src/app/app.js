@@ -1,8 +1,21 @@
 import angular from 'angular';
 import $ from "jquery";
+import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min';
+import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'bootstrap/dist/css/bootstrap.css';
-import '../style/app.scss';
+import '../style/app.css';
+
+$(window).on('load',function(){
+    if ($('.js-sidebar').length > 0) {
+        $('.js-sidebar').mCustomScrollbar({
+            axis:'y',
+            theme: 'minimal-dark',
+            scrollbarPosition: 'inside',
+            scrollInertia: 300,
+        });
+    }
+});
 
 let app = () => {
   return {
@@ -13,7 +26,7 @@ let app = () => {
 };
 
 class CardsController {
-  constructor($scope, $http) {
+  constructor($http) {
       var self = this;
       self.cardNameArr = [
           'Burial from a Different Dimension',

@@ -1,22 +1,27 @@
-/* styles in src/style directory are applied to the whole page */
-body {
-  background: #0147A7;
-  color: #fff;
+html, body, .app {
+  height: 100%;
+  overflow: hidden;
 }
 
-a {
-  color: #03A9F4;
+main, .app__container, .app__row {
+  height: 100%;
 }
 
-main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
+.sidebar__list {
+  padding: 40px 20px 40px 20px;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.8em;
+.sidebar__list-item {
+  list-style: none;
+  box-shadow: 0px 0px 5px #cccccc;
+  padding: 5px;
+  margin-bottom: 20px;
 }
+
+.card__image {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  float: left;
+}
+
