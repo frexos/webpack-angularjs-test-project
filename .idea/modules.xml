@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/encode-assignment.iml" filepath="$PROJECT_DIR$/.idea/encode-assignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/webpack-angularjs.iml" filepath="$PROJECT_DIR$/.idea/webpack-angularjs.iml" />
     </modules>
   </component>
 </project>

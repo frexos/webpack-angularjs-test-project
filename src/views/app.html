@@ -1,17 +1,19 @@
 <main ng-controller="CardsController">
   <div class="container-fluid app__container">
     <div class="row app__row">
-      <div class="col-3 js-sidebar sidebar">
-        <ul class="sidebar__list">
-          <li class="sidebar__list-item" ng-repeat="card in app.cards">
-            <a href='' ng-init="app.info(0)" ng-click="app.info($index)">
-              <span>{{card.name}}</span>
-              <p>{{card.type}}</p>
-            </a>
-          </li>
-        </ul>
+      <div class="col-xs-3 js-sidebar sidebar">
+        <div class="scrollme" ng-scrollbar>
+          <ul class="sidebar__list">
+            <li class="sidebar__list-item" ng-repeat="card in app.cards">
+              <a href='' ng-init="app.info(0)" ng-click="app.info($index)">
+                <span>{{card.name}}</span>
+                <p>{{card.type}}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="col-9 card">
+      <div class="col-xs-9 card">
         <h2 class="card__title">{{app.cardInfo.name}}</h2>
         <div class="clearfix"></div>
         <img class="card__image" ng-src="http://52.57.88.137/api/card_image/{{app.cardInfo.name}}">

@@ -7,6 +7,10 @@ main, .app__container, .app__row {
   height: 100%;
 }
 
+.sidebar {
+  height: 100%;
+}
+
 .sidebar__list {
   padding: 40px 20px 40px 20px;
 }
@@ -23,5 +27,10 @@ main, .app__container, .app__row {
   max-width: 240px;
   height: auto;
   float: left;
+}
+
+.scrollme {
+  max-height: 500px;
+  overflow: hidden;
 }
 

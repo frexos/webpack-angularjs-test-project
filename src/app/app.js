@@ -1,21 +1,10 @@
 import angular from 'angular';
-import $ from "jquery";
-import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min';
-import 'malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css';
-import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'ng-scrollbar-npm';
+import 'ng-scrollbar/dist/ng-scrollbar.min.js';
+import 'ng-scrollbar/dist/ng-scrollbar.min.css';
+// import 'angular-sanitize';
 import '../style/app.css';
-
-$(window).on('load',function(){
-    if ($('.js-sidebar').length > 0) {
-        $('.js-sidebar').mCustomScrollbar({
-            axis:'y',
-            theme: 'minimal-dark',
-            scrollbarPosition: 'inside',
-            scrollInertia: 300,
-        });
-    }
-});
 
 let app = () => {
   return {
@@ -26,7 +15,7 @@ let app = () => {
 };
 
 class CardsController {
-  constructor($http) {
+  constructor($scope, $http) {
       var self = this;
       self.cardNameArr = [
           'Burial from a Different Dimension',
@@ -66,13 +55,19 @@ class CardsController {
           });
       });
 
+      $scope.$on('scrollbar.show', function(){
+          console.log('Scrollbar show');
+      });
+      $scope.$on('scrollbar.hide', function(){
+          console.log('Scrollbar hide');
+      });
 
   }
 }
 
 const MODULE_NAME = 'app';
 
-angular.module(MODULE_NAME, [])
+angular.module(MODULE_NAME, ['ui.bootstrap', 'ngScrollbar'])
   .directive('app', app)
   .controller('CardsController', CardsController);
 
